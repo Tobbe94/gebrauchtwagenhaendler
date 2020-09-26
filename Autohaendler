@@ -1,0 +1,141 @@
+#Aufgabe:
+#1) Schreibe ein Programm für einen Gebrauchtwagenhändler. Dieses soll aus einer  Endlosschleife bestehen, die den Anwender fragt, welche Aktion er durchführen will.  
+#Dabei soll er folgende Optionen haben:  
+#- Neuen Wagen hinzufügen   
+#- Fahrzeug verkaufen   
+#- Preis eines Fahrzeugs ändern   
+#- Sortiment anzeigen   
+#- Programm beenden    
+#2) ​Die einzelnen Autos sollen in einem Objekt gespeichert werden. 
+#Erstelle hierfür in  einem neuen Modul die Klasse Auto. Sie soll die Attribute Artikelnummer, Marke,  Modell, Farbe, Baujahr und Preis enthalten. 
+#Diese Daten sollen gekapselt sein.    
+#3) ​Gestalte daraufhin für jede der oben genannten Aktionen eine passende Methode  oder Funktion, in die du Befehle/Programmteile auslagerst.   
+#Wenn sie ein vorhandenes Objekt verändert, ist eine Methode die richtige Wahl. In  allen anderen Fällen bietet es sich an, eine Funktion zu verwenden.     
+#4) ​Das gesamte Sortiment soll in einer Liste abgespeichert werden. 
+Diese enthält  Objekte vom Typ Auto. Es ist sinnvoll, wenn der Zugriff auf ein Objekt immer über die  Artikelnummer stattfindet. 
+Dazu ist es wichtig, darauf zu achten, dass jede Nummer nur  ein einziges Mal vergeben wird.
+
+
+#Auswahlmöglichkeiten für den Kunden
+
+auswahl = ["1: Neuen Wagen hinzufügen", "2: Fahrzeug verkaufen", "3: Preis eines Fahrzeugs ändern", "4: Sortiment anzeigen", "5: Programm beenden"]
+
+print(auswahl)
+#Modul "Autos" mit Artikelnummer, Marke, Modell, Farbe, Baujahr und Preis
+
+auto_liste = [[1, "BMW", "1er", "Blau", 2018, 30000], [2, "MB", "A", "Schwarz", 2019, 40000], [3, "Opel", "Astra", "Schwarz", "2015", 10000]]
+
+
+while True:
+    #print(auswahl)
+    eingabe = int(input("Was möchten Sie tun?: "))
+
+    if eingabe == 1:
+        print("Welches Auto soll hinzugefügt werden?")
+        artnr_neu = int(input("Artikelnummer: "))
+        marke_neu = str(input("Marke: "))
+        modell_neu = input("Modell: ")
+        farbe_neu = str(input("Farbe: "))
+        baujahr_neu = int(input("Baujahr: "))
+        preis_neu = float(input("Preis: "))
+        neues_auto = [marke_neu, modell_neu, farbe_neu, baujahr_neu, preis_neu]
+        auto_liste.append(neues_auto)
+        print(auto_liste)
+
+    elif eingabe == 2:
+        print(auto_liste)
+        verkauftes_auto = input("Welches Auto wurde verkauft?: ")
+        if verkauftes_auto in auto_liste(0):
+            auto_liste.remove(verkauftes_auto)
+        print(auto_liste)
+
+
+    elif eingabe == 3:
+        print(auto_liste)
+
+    elif eingabe == 4:
+        print(auto_liste)
+
+    elif eingabe == 5:
+        print("Sie haben das Programm verlassen.")
+        break
+
+    else:
+        False
+        print("Ungültige Eingabe!")
+        
+       
+#Modul Auto:
+
+class Auto:
+    anzahl = 0
+    """
+    Erstellt das Objekt Auto für einen Autohändler.
+    """
+    def __init__(self, artnr, marke, modell, farbe, baujahr, preis):
+        """
+        Initialisiert ein neues Objekt Auto
+
+        Argumente:
+        * Artikelnummer (int): Artikelnummer (eindeutig)
+        * Marke (str) : Marke des Autos
+        * Modell (str): Modell des Autos
+        * Farbe (str): Farbe des Autos
+        * Baujahr (int): Baujahr des Autos
+        * Preis (float): Preis des Autos
+        """
+
+        self.__artnr = artnr
+        self.__marke = marke
+        self.__modell = modell
+        self.__farbe = farbe
+        self.__baujahr = baujahr
+        self.__preis = preis
+        Auto.anzahl += 1
+
+    def get_artnr(self):
+        return self.__artnr
+
+    def get_marke(self):
+        return self.__marke
+
+    def get_modell(self):
+        return self.__modell
+
+    def get_farbe(self):
+        return self.__farbe
+
+    def get_baujahr(self):
+        return self.__baujahr
+
+        auto.anzahl += 1
+    def __del__(self):
+        Auto.anzahl -=1
+        print("Auto wurde gelöscht")
+        print("Es sind noch %d Autos verfügbar" %Auto.anzahl)
+
+    def __add__(self, artnr):
+        auto.anzahl += 1
+        print("Auto wurde hinzugefügt")
+        print("Es sind noch %d Autos verfügbar" %Auto.anzahl)
+
+    def get_preis(self):
+        return self.__preis
+
+    def set_preis(self, preis):
+        self.__preis = preis
+
+
+neuer_preis = input("Was ist der neue Preis?: ")
+
+auto_liste = []
+auto_liste.append(Auto(1, "BMW", "1er", "Blau", 2018, 30000))
+auto_liste.append(Auto(2, "Mercedes", "A", "Schwarz", 2019, 40000))
+auto_liste.append(Auto(3, "Opel", "Astra", "Rot", 2015, 10000))
+
+auto_liste[0].set_preis(neuer_preis)
+
+print(auto_liste[0].get_preis())
+
+print(auto_liste)
+
