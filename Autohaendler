@@ -15,6 +15,11 @@
 Diese enthält  Objekte vom Typ Auto. Es ist sinnvoll, wenn der Zugriff auf ein Objekt immer über die  Artikelnummer stattfindet. 
 Dazu ist es wichtig, darauf zu achten, dass jede Nummer nur  ein einziges Mal vergeben wird.
 
+#Meine Fragen: Wie kann ich die Artikelnummer eindeutig vergeben, sodass bei der Eingabe eines neuen Autos keine identische neue Artikelnummer vergeben werden kann? (bei Eingabe ==1)
+#Wie kann ich den User durch den Inputbefehl ein Auto aus der Liste entfernen lassen? (bei Eingabe ==2)
+#Wie kann ich den Preis eines bestimmten Fahrzeugs ändern? Habe ja breits eine Funktion in der Klasse Auto geschrieben. Kann ich das auch in der Konsole den User auswählen lassen?
+
+
 
 #Auswahlmöglichkeiten für den Kunden
 
